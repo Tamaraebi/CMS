@@ -24,12 +24,12 @@ include( 'includes/header.php' );
   <li>
   <li>
      <a href="education.php">
-     Education
+     Manage Education
     </a>
   </li>
   <li>
      <a href="socialmedia.php">
-      Social Media
+      Manage Social Media
     </a>
   </li>
     <a href="logout.php">
