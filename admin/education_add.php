@@ -43,7 +43,6 @@ include('includes/header.php');
 
   <label for="content">Institution:</label>
   <textarea type="text" name="institution" id="institution" rows="10"></textarea>
-
   
   <br>
 

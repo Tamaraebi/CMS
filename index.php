@@ -12,7 +12,7 @@ include( 'admin/includes/functions.php' );
   <meta charset="UTF-8">
   <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
   
-  <title>Website Admin</title>
+  <title>Tamara Ebi-ukuli | Portfolio</title>
   
   <link href="styles.css" type="text/css" rel="stylesheet">
   
@@ -23,6 +23,21 @@ include( 'admin/includes/functions.php' );
 
   <h1>Welcome to My Website!</h1>
   <p>This is the website frontend!</p>
+
+  <?php
+  echo '';
+  echo '<div class="hero">';
+  echo '<nav>';
+  echo '<h2 class="logo">Portfo<span>lio</span></h2>';
+  echo '<ul>';
+  echo '<li><a href="#">Home</a></li>';
+  echo '<li><a href="http://rohitsharmawebdeveloper.epizy.com/Project.php">Project</a></li>';
+  echo '<li><a href="http://rohitsharmawebdeveloper.epizy.com/skillpage.php">Skills</a></li>';
+  echo '<li><a href="http://rohitsharmawebdeveloper.epizy.com/education.php">Education</a></li>';
+  echo '</ul>';
+  echo '<a href="#" class="btn"></a>';
+  echo '</nav>';
+  ?>
 
   <?php
 

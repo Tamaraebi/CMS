@@ -43,7 +43,7 @@ $result = mysqli_query( $connect, $query );
     <th></th>
     <th></th>
   </tr>
-  <?php while( $record = mysqli_fetch_assoc( $result ) ): ?>
+  <?php while ($record = mysqli_fetch_assoc($result)): ?>
     <tr>
       <td align="center"><?php echo $record['id']; ?></td>
       <td align="center"><?php echo $record['credential']; ?></td>
