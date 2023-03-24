@@ -9,7 +9,7 @@ secure();
 if( isset( $_GET['delete'] ) )
 {
   
-  $query = 'DELETE FROM education
+  $query = 'DELETE FROM Education
     WHERE id = '.$_GET['delete'].'
     LIMIT 1';
   mysqli_query( $connect, $query );
@@ -24,7 +24,7 @@ if( isset( $_GET['delete'] ) )
 include( 'includes/header.php' );
 
 $query = 'SELECT *
-  FROM education
+  FROM Education
   ORDER BY year DESC';
 $result = mysqli_query( $connect, $query );
 

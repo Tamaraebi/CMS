@@ -23,9 +23,7 @@ if( isset( $_GET['delete'] ) )
 
 include( 'includes/header.php' );
 
-$query = 'SELECT *
-  FROM socialmedia
-  ORDER BY name DESC';
+$query = 'SELECT * FROM socialmedia';
 $result = mysqli_query( $connect, $query );
 
 ?>
@@ -41,10 +39,12 @@ $result = mysqli_query( $connect, $query );
     <th></th>
     <th></th>
   </tr>
-  <?php while( $record = mysqli_fetch_assoc( $result ) ): ?>
+  <?php while($record = mysqli_fetch_assoc($result)): ?>
     <tr>
       <td align="center"><?php echo $record['id']; ?></td>
-      <td align="center"><?php echo $record['name']; ?></td>
+      <td align="left">
+        <?php echo htmlentities( $record['Name'] ); ?>
+      </td>
       <td align="center"><?php echo $record['url']; ?></td>
       <td align="center"><a href="socialmedia_edit.php?id=<?php echo $record['id']; ?>">Edit</i></a></td>
       <td align="center">
