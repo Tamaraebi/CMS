@@ -24,13 +24,13 @@ if( isset( $_GET['delete'] ) )
 include( 'includes/header.php' );
 
 $query = 'SELECT *
-  FROM educational
+  FROM education
   ORDER BY year DESC';
 $result = mysqli_query( $connect, $query );
 
 ?>
 
-<h2>Manage Education</h2>
+<h2>Manage Educations</h2>
 
 <table>
   <tr>
@@ -39,7 +39,6 @@ $result = mysqli_query( $connect, $query );
     <th align="center">Credential</th>
     <th align="center">Institution</th>
     <th align="center">Year</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>

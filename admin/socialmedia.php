@@ -30,7 +30,7 @@ $result = mysqli_query( $connect, $query );
 
 ?>
 
-<h2>Manage Social Media Links</h2>
+<h2>Manage Social Medias</h2>
 
 <table>
   <tr>
