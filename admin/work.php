@@ -43,8 +43,8 @@ $result = mysqli_query( $connect, $query );
   <?php while( $record = mysqli_fetch_assoc( $result ) ): ?>
     <tr>
       <td align="center"><?php echo $record['id']; ?></td>
-      <td align="center" style="white-space: nowrap;"><?php echo htmlentities( $record['Company'] ); ?></td>
-      <td align="left">
+      <td align="center"><?php echo htmlentities( $record['Company'] ); ?></td>
+      <td align="center">
         <?php echo htmlentities( $record['Position'] ); ?>
       </td>
       <td align="center"><?php echo $record['Responsibilities']; ?></td>
