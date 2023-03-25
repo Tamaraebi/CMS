@@ -45,7 +45,7 @@ $result = mysqli_query( $connect, $query );
       <td align="left">
         <?php echo htmlentities( $record['Name'] ); ?>
       </td>
-      <td align="center"><?php echo $record['url']; ?></td>
+      <<td align="left"><a href="<?php echo htmlentities( $record['url'] ); ?>"><?php echo htmlentities( $record['url'] ); ?></a></td>
       <td align="center"><a href="socialmedia_edit.php?id=<?php echo $record['id']; ?>">Edit</i></a></td>
       <td align="center">
         <a href="socialmedia.php?delete=<?php echo $record['id']; ?>" onclick="javascript:confirm('Are you sure you want to delete this social media?');">Delete</i></a>

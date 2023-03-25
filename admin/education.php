@@ -45,7 +45,7 @@ $result = mysqli_query( $connect, $query );
   <?php while ($record = mysqli_fetch_assoc($result)): ?>
     <tr>
       <td align="center"><?php echo $record['id']; ?></td>
-      <td align="center"><?php echo $record['credential']; ?></td>
+      <td align="center"><?php echo htmlentities($record['credential']); ?></td>
       <td align="center"><?php echo $record['institution']; ?></td>
       <td align="center"><?php echo $record['year']; ?></td>
       <td align="center"><a href="education_edit.php?id=<?php echo $record['id']; ?>">Edit</i></a></td>

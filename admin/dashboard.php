@@ -36,6 +36,11 @@ include( 'includes/header.php' );
       Manage Social Media
     </a>
   </li>
+  <li>
+     <a href="work.php">
+      Manage Work
+    </a>
+  </li>
     <a href="logout.php">
       Logout
     </a>

@@ -30,7 +30,7 @@ $result = mysqli_query( $connect, $query );
 
 ?>
 
-<h2>Manage Projects</h2>
+<h2>Manage Skills</h2>
 
 <table>
   <tr>

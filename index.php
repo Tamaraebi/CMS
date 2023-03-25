@@ -15,6 +15,8 @@ include( 'admin/includes/functions.php' );
   <title>Tamara Ebi-ukuli | Portfolio</title>
   
   <link href="styles.css" type="text/css" rel="stylesheet">
+
+  <link href="style.css" type="text/css" rel="stylesheet">
   
   <script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
   
@@ -25,7 +27,6 @@ include( 'admin/includes/functions.php' );
 
   <?php
   echo '';
-  echo '<div class="hero">';
   echo '<nav>';
   echo '<h2 class="logo">Portfo<span>lio</span></h2>';
   echo '<ul>';
@@ -33,6 +34,7 @@ include( 'admin/includes/functions.php' );
   echo '<li><a href="http://tamaraebi.infinityfreeapp.com/CMS/admin/projects.php">Projects</a></li>';
   echo '<li><a href="http://tamaraebi.infinityfreeapp.com/CMS/admin/skills.php">Skills</a></li>';
   echo '<li><a href="http://tamaraebi.infinityfreeapp.com/CMS/admin/education.php">Education</a></li>';
+  echo '<li><a href="http://tamaraebi.infinityfreeapp.com/CMS/admin/work.php">Work</a></li>';
   echo '</ul>';
   echo '<a href="#" class="btn"></a>';
   echo '</nav>';
@@ -43,43 +45,82 @@ include( 'admin/includes/functions.php' );
   echo '<div class="main">';
   echo '<div class="about-text">';
   echo '<h2>About Me</h2>';
-  echo '<h3> Web Developer <span>& Web Designer</span></h3>';
+  echo '<h5> Web Developer <span>& Web Designer</span></h5>';
   echo '<p>Hello! My name is Tamara and I am a front end developer and designer that is solution-driven, enthusiastic and posses the ability to adapt and collaborate in fast changing environments and concepts</p>';
   echo '<button type="button">Contact Me</button>';
   echo '</div>';
   echo '</div>';
   echo '</section>';
   ?>
-<h2>My Skills</h2>
+     <!----Skills section---->
+  <h2>My Skills</h2>
 
-<?php
+  <?php
 
-$query = 'SELECT *
-  FROM skills
-  ORDER BY percent DESC';
-$result = mysqli_query($connect, $query);
+  $query = 'SELECT *
+    FROM Skills
+    ORDER BY percent DESC';
+  $result = mysqli_query($connect, $query);
 
-?>
+  ?>
 
-<?php while($record = mysqli_fetch_assoc($result)): ?>
+  <?php while($record = mysqli_fetch_assoc($result)): ?>
 
-  <h3><?php echo $record['name']; ?></h3>
+    <h3><?php echo $record['name']; ?>Html, CSS, Javascript, PHP</h3>
 
-  <p>Percent: <?php echo $record['percent']; ?>%</p>
+    <p>Percent: <?php echo $record['percent']; ?> 95%</p>
 
-  <div style="background-color: grey;">
-    <div style="background-color: red; height: 20px; width:<?php echo $record['percent']; ?>%;"></div>
-  </div>
+    <div style="background-color: grey;">
+      <div style="background-color: red; height: 20px; width:<?php echo $record['percent']; ?>%;"></div>
+    </div>
 
-<?php endwhile; ?>
+  <?php endwhile; ?>
+    <!----Education section---->
+  <h2>Education </h2>
+  <?php   
+    $query = 'SELECT *
+    FROM Education
+    ORDER BY year DESC';
+    $result = mysqli_query( $connect, $query );
+  ?>
 
-</body>
-</html>
+  <?php while( $record = mysqli_fetch_assoc( $result ) ): ?>
+   <div class="main">
+       <div class="font">
+          <h3><?php echo $record['Credential']; ?></h3>
+       </div>
+        <div class="font">
+           <h4><?php echo $record['Institution']; ?></h4>
+        </div>
+        <div class="font">
+           <h4><?php echo $record['Year']; ?></h4>
+        </div>
+   </div>
+   <div class="right">
+     <h3 class="fontright"><?php echo $record['Institution']; ?></h3>
+   </div>
+  <?php endwhile; ?>
 
-    
-    
+    <!----Work section---->
+    <h2>Work</h2>
+    <?php
+      $query = 'SELECT *
+      FROM work';
+      $result= mysqli_query($connect, $query);
+    ?>
+    <?php while ($record = mysqli_fetch_assoc($result)): ?>
+      <div class="expcontent">
+        <h3><?php echo $record['Company'];
+                  echo $record['Position'];   
+              ?>
+        </h3>
+        </p>
+            <div class="responsibilities"><strong>Responsibilities:</strong></div>
+            <?php echo $record['Responsibilities'];?>
+            <?php endwhile;?>    
 
 
+    <!----Projects section---->
   <?php
 
   $query = 'SELECT *
