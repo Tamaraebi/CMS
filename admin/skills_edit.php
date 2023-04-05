@@ -1,96 +1,86 @@
 <?php
 
-include( 'includes/database.php' );
-include( 'includes/config.php' );
-include( 'includes/functions.php' );
+include('includes/database.php');
+include('includes/config.php');
+include('includes/functions.php');
 
 secure();
 
-if( !isset( $_GET['id'] ) )
-{
-  
-  header( 'Location: skills.php' );
+if (!isset($_GET['id'])) {
+
+  header('Location: skills.php');
   die();
-  
 }
 
-if( isset( $_POST['title'] ) )
-{
-  
-  if( $_POST['title'])
-  {
-    
+if (isset($_POST['name'])) {
+
+  if ($_POST['name'] and $_POST['percent']) {
+
     $query = 'UPDATE Skills SET
-      Title = "'.mysqli_real_escape_string( $connect, $_POST['title'] ).'",
-      URL = "'.mysqli_real_escape_string( $connect, $_POST['url'] ).'",
-      Percent = "'.mysqli_real_escape_string( $connect, $_POST['percent'] ).'"
-      WHERE id = '.$_GET['id'].'
+      name = "' . mysqli_real_escape_string($connect, $_POST['name']) . '",
+      percent = "' . mysqli_real_escape_string($connect, $_POST['percent']) . '",
+      url = "' . mysqli_real_escape_string($connect, $_POST['url']) . '"
+      WHERE id = ' . $_GET['id'] . '
       LIMIT 1';
-    mysqli_query( $connect, $query );
-    
-    set_message( 'Skill has been updated' );
-    
+    mysqli_query($connect, $query);
+
+    set_message('Skill has been updated');
   }
 
-  header( 'Location: skills.php' );
+  header('Location: skills.php');
   die();
-  
 }
 
 
-if( isset( $_GET['id'] ) )
-{
-  
+if (isset($_GET['id'])) {
+
   $query = 'SELECT *
     FROM Skills
-    WHERE id = '.$_GET['id'].'
+    WHERE id = ' . $_GET['id'] . '
     LIMIT 1';
-  $result = mysqli_query( $connect, $query );
-  
-  if( !mysqli_num_rows( $result ) )
-  {
-    
-    header( 'Location: skills.php' );
+  $result = mysqli_query($connect, $query);
+
+  if (!mysqli_num_rows($result)) {
+
+    header('Location: skills.php');
     die();
-    
   }
-  
-  $record = mysqli_fetch_assoc( $result );
-  
+
+  $record = mysqli_fetch_assoc($result);
 }
 
-include( 'includes/header.php' );
+include('includes/header.php');
 
 ?>
 
-<h2>Edit Skills</h2>
+<h2>Edit Skill</h2>
 
 <form method="post">
-  
-  <label for="title"> Title:</label>
-  <input type="text" name="title" id="title" value="<?php echo htmlentities( $record['title'] ); ?>">
-    
+
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name" value="<?php echo htmlentities($record['name']); ?>">
+
   <br>
-  
-  <label for="url"> URL:</label>
-  <input type="text" name="url" id="url" value="<?php echo htmlentities( $record['url'] ); ?>">
-    
+
+  <label for="url">URL:</label>
+  <input type="text" name="url" id="url" value="<?php echo htmlentities($record['url']); ?>">
+
   <br>
-  
-  <label for="percent"> Percent:</label>
-  <input type="text" name="percent" id="percent" value="<?php echo htmlentities( $record['percent'] ); ?>">
-    
+
+  <label for="percent">Percent:</label>
+  <input type="text" name="percent" id="percent" value="<?php echo htmlentities($record['percent']); ?>">
+
   <br>
-  
-  <input type="submit" value="Edit Skill">
-  
+
+  <input type="submit" value="Edit Project">
+
 </form>
 
-<p><a href="skill.php"><i class="fas fa-arrow-circle-left"></i> Return to Skill List</a></p>
+<p><a href="skills.php"><i class="fas fa-arrow-circle-left"></i> Return to Project List</a></p>
 
 
 <?php
 
-include( 'includes/footer.php' );
+include('includes/footer.php');
 
 ?>

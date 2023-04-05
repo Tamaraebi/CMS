@@ -1,61 +1,58 @@
 <?php
 
-include( 'includes/database.php' );
-include( 'includes/config.php' );
-include( 'includes/functions.php' );
+include('includes/database.php');
+include('includes/config.php');
+include('includes/functions.php');
 
 secure();
+//Check to see if the form has been submitted
+if (isset($_POST['name'])) {
+  //Confirm required form data is complete
+  if ($_POST['name'] and $_POST['percent']) {
 
-if( isset( $_POST['title'] ) )
-{
-  
-  if( $_POST['title'])
-  {
-    
     $query = 'INSERT INTO Skills (
-        title,
-        url,
-        percent
+        name,
+        percent,
+        url
       ) VALUES (
-         "'.mysqli_real_escape_string( $connect, $_POST['title'] ).'",
-         "'.mysqli_real_escape_string( $connect, $_POST['url'] ).'",
-         "'.mysqli_real_escape_string( $connect, $_POST[' percent'] ).'"
+         "' . mysqli_real_escape_string($connect, $_POST['name']) . '",
+         "' . mysqli_real_escape_string($connect, $_POST['percent']) . '",
+         "' . mysqli_real_escape_string($connect, $_POST['url']) . '"
       )';
-    mysqli_query( $connect, $query );
-    
-    set_message( 'Skill has been added' );
-    
+    mysqli_query($connect, $query);
+
+    set_message('Skill has been added');
   }
-  
-  header( 'Location: skills.php' );
+
+  header('Location: skills.php');
   die();
-  
 }
 
-include( 'includes/header.php' );
+include('includes/header.php');
 
 ?>
 
-<h2>Add Skills</h2>
+<h2>Add Skill</h2>
 
 <form method="post">
-  
-  <label for="title">Title:</label>
-  <input type="text" name="title" id="title">
-    
+
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name">
+
   <br>
-   <label for="url">URL:</label>
-  <input type="text" name="url" id="url">
- 
-  <br>
-  
+
   <label for="percent">Percent:</label>
   <input type="text" name="percent" id="percent">
-  
+
   <br>
-  
-  <input type="submit" value="Addskill">
-  
+
+  <label for="url">URL:</label>
+  <input type="text" name="url" id="url">
+
+  <br>
+
+  <input type="submit" value="Add Skill">
+
 </form>
 
 <p><a href="skills.php"><i class="fas fa-arrow-circle-left"></i> Return to Skill List</a></p>
@@ -63,6 +60,6 @@ include( 'includes/header.php' );
 
 <?php
 
-include( 'includes/footer.php' );
+include('includes/footer.php');
 
 ?>
